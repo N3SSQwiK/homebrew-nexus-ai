@@ -11,7 +11,7 @@ class NexusAi < Formula
 
   resource "textual" do
     url "https://files.pythonhosted.org/packages/source/t/textual/textual-1.0.0.tar.gz"
-    sha256 "a551dc2b66ed453e49cfa6c7d0fcd83310ccb49430654401dd30ac5b20f7227d"
+    sha256 "bec9fe63547c1c552569d1b75d309038b7d456c03f86dfa3706ddb099b151399"
   end
 
   def install
