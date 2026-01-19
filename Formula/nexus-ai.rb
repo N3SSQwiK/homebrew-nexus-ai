@@ -9,13 +9,10 @@ class NexusAi < Formula
 
   depends_on "python@3.11"
 
-  resource "textual" do
-    url "https://files.pythonhosted.org/packages/source/t/textual/textual-1.0.0.tar.gz"
-    sha256 "bec9fe63547c1c552569d1b75d309038b7d456c03f86dfa3706ddb099b151399"
-  end
-
   def install
-    virtualenv_install_with_resources
+    # Create virtualenv and install with pip (handles all dependencies)
+    venv = virtualenv_create(libexec, "python3.11")
+    venv.pip_install_and_link buildpath
   end
 
   test do
