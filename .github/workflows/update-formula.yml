@@ -20,12 +20,21 @@ jobs:
           echo "Updating formula to version ${VERSION} with SHA256 ${SHA256}"
 
           # Update the URL to point to the new version
-          sed -i "s|archive/refs/tags/v.*\.tar\.gz|archive/refs/tags/${VERSION}.tar.gz|" Formula/nexus-ai.rb
+          sed -i "s|archive/refs/tags/v.*\.tar\\.gz|archive/refs/tags/${VERSION}.tar.gz|" Formula/nexus-ai.rb
 
-          # Update the SHA256
-          sed -i "s|sha256 \".*\"|sha256 \"${SHA256}\"|" Formula/nexus-ai.rb
+          # Update only the FIRST sha256 (the main tarball, not resource SHAs)
+          # Use awk to replace only the first occurrence
+          awk -v sha="${SHA256}" '
+            /sha256 "/ && !replaced {
+              sub(/sha256 "[^"]*"/, "sha256 \"" sha "\"")
+              replaced = 1
+            }
+            { print }
+          ' Formula/nexus-ai.rb > Formula/nexus-ai.rb.tmp
+          mv Formula/nexus-ai.rb.tmp Formula/nexus-ai.rb
 
           # Show the changes
+          echo "Updated formula:"
           cat Formula/nexus-ai.rb
 
       - name: Commit and push
