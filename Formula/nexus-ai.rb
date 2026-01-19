@@ -11,11 +11,8 @@ class NexusAi < Formula
 
   def install
     virtualenv_create(libexec, "python3.11")
-    
-    # Install with dependencies (not --no-deps)
     system libexec/"bin/python", "-m", "pip", "install", "--upgrade", "pip"
     system libexec/"bin/python", "-m", "pip", "install", buildpath
-    
     bin.install_symlink libexec/"bin/nexus-ai"
   end
 
