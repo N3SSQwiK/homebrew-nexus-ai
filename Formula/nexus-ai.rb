@@ -5,7 +5,7 @@ class NexusAi < Formula
   homepage "https://github.com/N3SSQwiK/agent-tools"
   url "https://github.com/N3SSQwiK/agent-tools/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "a551dc2b66ed453e49cfa6c7d0fcd83310ccb49430654401dd30ac5b20f7227d"
-  license "MIT"
+  license "AGPL-3.0-or-later"
 
   depends_on "python@3.11"
 
