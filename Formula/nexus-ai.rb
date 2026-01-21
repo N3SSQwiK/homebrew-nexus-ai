@@ -3,8 +3,8 @@ class NexusAi < Formula
 
   desc "TUI installer for AI assistant CLI tools (Claude Code, Gemini CLI, Codex CLI)"
   homepage "https://github.com/N3SSQwiK/agent-tools"
-  url "https://github.com/N3SSQwiK/agent-tools/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "a551dc2b66ed453e49cfa6c7d0fcd83310ccb49430654401dd30ac5b20f7227d"
+  url "https://github.com/N3SSQwiK/agent-tools/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "8c6432b163b143e764f7c528695b58fa9639d4bf7c7ec938da5279956ed8e064"
   license "AGPL-3.0-or-later"
 
   depends_on "python@3.11"
